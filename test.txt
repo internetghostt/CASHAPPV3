@@ -1,0 +1,15 @@
+Set-Location C:\xampp\htdocs\project\cashapp-php-V3\frontend
+# Ensure API points to your live backend
+# add yur website dir to backend 
+'NEXT_PUBLIC_API_BASE=https://devv.mugcafee.com/backend/api' | Set-Content -NoNewline .env.local
+
+# Optional: clean previous build/export
+if (Test-Path .next) { Remove-Item .next -Recurse -Force }
+if (Test-Path out)   { Remove-Item out   -Recurse -Force }
+
+# Install deps and build
+npm ci
+npm run build
+
+# Export to static out/ (run this even if output: "export" is set)
+npx next export -o out
