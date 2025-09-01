@@ -98,12 +98,34 @@ Update `frontend/src/context/AuthContext.tsx`:
 - **Update API calls** to handle new fields
 - **Maintain type safety** throughout the application
 
-### Styling & Design
+### Color Scheme & Design
 
-Edit `frontend/src/app/globals.css`:
-- **Color variables:** Modify CSS custom properties in `:root`
-- **Component styles:** Add new utility classes
-- **Responsive design:** Use Tailwind breakpoints
+The app uses a **black, white, and gray** color scheme. Edit `frontend/src/app/globals.css`:
+
+**Color Variables:**
+```css
+:root {
+  --background: #ffffff;     /* pure white */
+  --foreground: #000000;     /* pure black text */
+  --primary: #000000;        /* black primary */
+  --accent: #666666;         /* medium gray accent */
+  --border: #e5e5e5;         /* light gray borders */
+  --card: #ffffff;           /* white cards */
+  --muted: #f8f9fa;          /* very light gray */
+}
+```
+
+**Component Classes:**
+- `.button-primary` - Black background, white text
+- `.button-secondary` - Gray background, black text
+- `.card` - White background with gray border
+- `.input` - White background with gray border, black focus ring
+
+**Design Principles:**
+- Use black for primary actions and emphasis
+- Use gray shades for secondary elements and text
+- Maintain high contrast for accessibility
+- Keep backgrounds white for clean appearance
 
 ### Navigation & Routing
 
@@ -180,6 +202,40 @@ Edit `frontend/src/app/globals.css`:
 - **Backend validation:** Use `require_auth(true)` for admin endpoints
 - **Route protection:** Redirect non-admins away from admin pages
 
+## UI/UX Guidelines
+
+### Color Usage
+
+**Primary Actions:**
+- Use black (`#000000`) for main buttons and important elements
+- Use white text on black backgrounds
+
+**Secondary Elements:**
+- Use gray shades (`#666666`, `#999999`) for secondary text
+- Use light gray (`#f8f9fa`) for disabled states
+
+**Status Indicators:**
+- Use black for positive status (verified, active)
+- Use gray for neutral/inactive status
+- Maintain consistency across all components
+
+### Component Styling
+
+**Cards:**
+- White background with subtle gray border
+- Rounded corners (rounded-2xl)
+- Minimal shadow for depth
+
+**Forms:**
+- Clean input fields with gray borders
+- Black focus rings for accessibility
+- Consistent spacing and typography
+
+**Navigation:**
+- Bottom navigation with gray icons
+- Clear visual hierarchy
+- Disabled states for frozen accounts
+
 ## Security Best Practices
 
 ### Authentication
@@ -242,8 +298,33 @@ Edit `frontend/src/app/globals.css`:
 
 1. **Update page components** in `frontend/src/app/`
 2. **Modify global styles** in `frontend/src/app/globals.css`
-3. **Test responsive design** across different screen sizes
-4. **Ensure frozen account handling** is implemented
+3. **Follow black/white/gray color scheme**
+4. **Test responsive design** across different screen sizes
+5. **Ensure frozen account handling** is implemented
+
+### Customizing Colors and Themes
+
+**To change the color scheme:**
+1. **Edit CSS variables** in `frontend/src/app/globals.css`:
+   ```css
+   :root {
+     --background: #ffffff;     /* main background */
+     --foreground: #000000;     /* main text color */
+     --primary: #000000;        /* primary action color */
+     --accent: #666666;         /* secondary text */
+   }
+   ```
+
+2. **Update component classes:**
+   - `.button-primary` - Main action buttons
+   - `.button-secondary` - Secondary buttons
+   - `.card` - Card backgrounds and borders
+   - `.input` - Form input styling
+
+3. **Update specific color references** in components:
+   - Search for hardcoded colors like `text-green-600`
+   - Replace with appropriate gray/black equivalents
+   - Maintain accessibility contrast ratios
 
 ### Testing Changes
 
@@ -257,6 +338,7 @@ Edit `frontend/src/app/globals.css`:
 - Verify admin functionality works properly
 - Test frozen account behavior
 - Check responsive design on mobile devices
+- Verify color scheme consistency across all pages
 
 ## Troubleshooting
 
@@ -282,6 +364,11 @@ Edit `frontend/src/app/globals.css`:
 - Verify frozen account checks in frontend
 - Test that viewing still works when frozen
 
+**Color Scheme Issues:**
+- Check CSS variable definitions in globals.css
+- Verify component classes are using correct colors
+- Test contrast ratios for accessibility
+
 ### Development Tips
 
 - **Use browser dev tools** to inspect API calls and responses
@@ -289,6 +376,7 @@ Edit `frontend/src/app/globals.css`:
 - **Test with different user types** (regular, admin, frozen)
 - **Verify mobile responsiveness** throughout development
 - **Test edge cases** like insufficient balance, invalid recipients
+- **Use consistent color variables** instead of hardcoded colors
 
 ## Code Style Guidelines
 
@@ -305,6 +393,7 @@ Edit `frontend/src/app/globals.css`:
 - Use React hooks appropriately
 - Follow Next.js best practices
 - Maintain consistent component structure
+- Use Tailwind classes consistently with the black/white/gray theme
 
 ### Database
 - Use descriptive column names
@@ -313,4 +402,12 @@ Edit `frontend/src/app/globals.css`:
 - Use proper data types for each field
 - Include created_at/updated_at timestamps
 
-This guide should help you navigate and modify any part of the Cash App Clone application effectively.
+### Design System
+- **Primary color:** Black (#000000) for main actions
+- **Text colors:** Black for primary text, gray shades for secondary
+- **Backgrounds:** White for main areas, light gray for disabled states
+- **Borders:** Light gray (#e5e5e5) for subtle separation
+- **Spacing:** Use Tailwind's spacing scale consistently
+- **Typography:** Maintain clear hierarchy with font weights
+
+This guide should help you navigate and modify any part of the Cash App Clone application effectively while maintaining the clean black, white, and gray aesthetic.

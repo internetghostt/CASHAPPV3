@@ -9,7 +9,7 @@ export default function SearchPage() {
     return (
       <div className="min-h-screen p-6">
         <h1 className="text-2xl font-bold mb-2">Search</h1>
-        <div className="text-sm text-red-600">Your account is frozen. This feature is unavailable.</div>
+        <div className="text-sm text-gray-600">Your account is frozen. This feature is unavailable.</div>
       </div>
     );
   }
@@ -17,7 +17,7 @@ export default function SearchPage() {
   return (
     <div className="min-h-screen p-6">
       <h1 className="text-2xl font-bold">Search</h1>
-      <div className="text-sm text-[#666]">Coming soon.</div>
+      <div className="text-sm text-gray-600">Coming soon.</div>
     </div>
   );
 }

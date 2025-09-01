@@ -210,15 +210,15 @@ export default function AdminPage() {
                     <span className={`px-2 py-1 rounded-full text-xs ${u.is_frozen ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
                       {u.is_frozen ? 'Frozen' : 'Active'}
                     </span>
-                    {u.is_admin ? <span className="ml-2 px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-600">Admin</span> : null}
+                    {u.is_admin ? <span className="ml-2 px-2 py-1 rounded-full text-xs bg-black text-white">Admin</span> : null}
                   </td>
                   <td className="p-2">
                     <div className="flex gap-2">
-                      <span className={u.kyc_verified ? "text-green-600" : "text-gray-400"}>
-                        {u.kyc_verified ? "✅" : "⚫"} KYC
+                      <span className={u.kyc_verified ? "text-black" : "text-gray-400"}>
+                        {u.kyc_verified ? "✅" : "●"} KYC
                       </span>
-                      <span className={u.bank_verified ? "text-green-600" : "text-gray-400"}>
-                        {u.bank_verified ? "✅" : "⚫"} Bank
+                      <span className={u.bank_verified ? "text-black" : "text-gray-400"}>
+                        {u.bank_verified ? "✅" : "●"} Bank
                       </span>
                     </div>
                   </td>
@@ -226,19 +226,19 @@ export default function AdminPage() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => openEditForm(u)}
-                        className="text-blue-600 hover:underline text-xs"
+                        className="text-black hover:underline text-xs"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleToggleFreeze(u.id, u.is_frozen)}
-                        className={`hover:underline text-xs ${u.is_frozen ? 'text-green-600' : 'text-orange-600'}`}
+                        className={`hover:underline text-xs ${u.is_frozen ? 'text-black' : 'text-gray-600'}`}
                       >
                         {u.is_frozen ? 'Unfreeze' : 'Freeze'}
                       </button>
                       <button
                         onClick={() => handleDeleteUser(u.id)}
-                        className="text-red-600 hover:underline text-xs"
+                        className="text-gray-800 hover:underline text-xs"
                       >
                         Delete
                       </button>

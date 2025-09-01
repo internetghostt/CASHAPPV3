@@ -28,7 +28,7 @@ export default function LoginPage() {
         <form onSubmit={onSubmit} className="space-y-4">
           <input className="input" placeholder="Email or Phone" value={identifier} onChange={(e) => setIdentifier(e.target.value)} />
           <input className="input" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          {error && <div className="text-sm text-red-600">{error}</div>}
+          {error && <div className="text-sm text-gray-800">{error}</div>}
           <button className="button-primary w-full">Sign in</button>
         </form>
       </div>

@@ -31,7 +31,7 @@ export default function SendPage() {
       <form onSubmit={onSubmit} className="space-y-4 max-w-md">
         <input className="input text-center text-3xl" placeholder="$0.00" value={amount} onChange={(e) => setAmount(e.target.value)} />
         <input className="input" placeholder="Email or Account Number" value={recipient} onChange={(e) => setRecipient(e.target.value)} />
-        {error && <div className="text-sm text-red-600">{error}</div>}
+        {error && <div className="text-sm text-gray-800">{error}</div>}
         <button className="button-primary w-full">Send</button>
       </form>
     </div>

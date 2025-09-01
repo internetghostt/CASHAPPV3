@@ -37,9 +37,9 @@ export default function HistoryPage() {
           <div key={t.id} className="card p-4 flex items-center justify-between">
             <div>
               <div className="text-sm font-semibold capitalize">{t.type}</div>
-              <div className="text-xs text-[#777]">{new Date(t.created_at).toLocaleString()}</div>
+              <div className="text-xs text-gray-500">{new Date(t.created_at).toLocaleString()}</div>
             </div>
-            <div className={`text-base font-bold ${t.type === "received" ? "text-green-600" : "text-red-600"}`}>
+            <div className={`text-base font-bold ${t.type === "received" ? "text-black" : "text-gray-600"}`}>
               {t.type === "received" ? "+" : "-"}${Number(t.amount).toFixed(2)}
             </div>
           </div>

@@ -52,8 +52,8 @@ export default function SettingsPage() {
   return (
     <div className="min-h-screen p-6 space-y-6">
       <div className="card p-4">
-        <div className="text-sm text-[#666] mb-2">Cash Card</div>
-        <div className="bg-[var(--primary)] text-white rounded-2xl p-6">
+        <div className="text-sm text-gray-600 mb-2">Cash Card</div>
+        <div className="bg-black text-white rounded-2xl p-6">
           <div className="text-xs opacity-80">Balance</div>
           <div className="text-3xl font-extrabold">${Number(user?.balance ?? 0).toFixed(2)}</div>
         </div>
@@ -64,7 +64,7 @@ export default function SettingsPage() {
         
         <div className="space-y-3">
           <div>
-            <label className="block text-sm text-[#666] mb-1">Full Name</label>
+            <label className="block text-sm text-gray-600 mb-1">Full Name</label>
             <input 
               className={`input ${isFrozen ? 'bg-gray-100 cursor-not-allowed' : ''}`} 
               value={name} 
@@ -74,7 +74,7 @@ export default function SettingsPage() {
           </div>
           
           <div>
-            <label className="block text-sm text-[#666] mb-1">Email</label>
+            <label className="block text-sm text-gray-600 mb-1">Email</label>
             <input 
               className={`input ${isFrozen ? 'bg-gray-100 cursor-not-allowed' : ''}`} 
               value={email} 
@@ -84,7 +84,7 @@ export default function SettingsPage() {
           </div>
           
           <div>
-            <label className="block text-sm text-[#666] mb-1">Phone</label>
+            <label className="block text-sm text-gray-600 mb-1">Phone</label>
             <input 
               className={`input ${isFrozen ? 'bg-gray-100 cursor-not-allowed' : ''}`} 
               value={phone} 
@@ -94,7 +94,7 @@ export default function SettingsPage() {
           </div>
 
           <div>
-            <label className="block text-sm text-[#666] mb-1">Date of Birth</label>
+            <label className="block text-sm text-gray-600 mb-1">Date of Birth</label>
             <input 
               className="input bg-gray-100 cursor-not-allowed" 
               value={user?.date_of_birth || ""} 
@@ -103,7 +103,7 @@ export default function SettingsPage() {
           </div>
 
           <div>
-            <label className="block text-sm text-[#666] mb-1">Occupation</label>
+            <label className="block text-sm text-gray-600 mb-1">Occupation</label>
             <input 
               className="input bg-gray-100 cursor-not-allowed" 
               value={user?.occupation || ""} 
@@ -118,7 +118,7 @@ export default function SettingsPage() {
         
         <div className="space-y-3">
           <div>
-            <label className="block text-sm text-[#666] mb-1">Contract Start Date</label>
+            <label className="block text-sm text-gray-600 mb-1">Contract Start Date</label>
             <input 
               className={`input ${isFrozen ? 'bg-gray-100 cursor-not-allowed' : ''}`} 
               type="date"
@@ -129,7 +129,7 @@ export default function SettingsPage() {
           </div>
           
           <div>
-            <label className="block text-sm text-[#666] mb-1">Contract Expiry Date</label>
+            <label className="block text-sm text-gray-600 mb-1">Contract Expiry Date</label>
             <input 
               className={`input ${isFrozen ? 'bg-gray-100 cursor-not-allowed' : ''}`} 
               type="date"
@@ -148,8 +148,8 @@ export default function SettingsPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <span className="text-sm">KYC (ID)</span>
-              <span className={kycVerified ? "text-green-600" : "text-gray-400"}>
-                {kycVerified ? "✅" : "⚫"}
+              <span className={kycVerified ? "text-black" : "text-gray-400"}>
+                {kycVerified ? "✅" : "●"}
               </span>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
@@ -160,7 +160,7 @@ export default function SettingsPage() {
                 onChange={(e) => setKycVerified(e.target.checked)}
                 disabled={isFrozen}
               />
-              <div className={`w-11 h-6 rounded-full transition-colors ${kycVerified ? 'bg-green-600' : 'bg-gray-300'} ${isFrozen ? 'opacity-50 cursor-not-allowed' : ''}`}>
+              <div className={`w-11 h-6 rounded-full transition-colors ${kycVerified ? 'bg-black' : 'bg-gray-300'} ${isFrozen ? 'opacity-50 cursor-not-allowed' : ''}`}>
                 <div className={`w-5 h-5 bg-white rounded-full shadow transform transition-transform ${kycVerified ? 'translate-x-5' : 'translate-x-0'} mt-0.5 ml-0.5`}></div>
               </div>
             </label>
@@ -168,11 +168,11 @@ export default function SettingsPage() {
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/>
               </svg>
               <span className="text-sm">Bank</span>
-              {user?.bank_verified ? <span className="text-green-600">✅</span> : null}
+              {user?.bank_verified ? <span className="text-black">✅</span> : null}
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function SettingsPage() {
       )}
 
       {isFrozen && (
-        <div className="text-center text-sm text-red-600 bg-red-50 p-3 rounded-xl">
+        <div className="text-center text-sm text-gray-800 bg-gray-100 p-3 rounded-xl">
           Account is frozen. Settings cannot be modified.
         </div>
       )}

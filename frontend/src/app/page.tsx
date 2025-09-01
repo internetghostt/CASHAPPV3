@@ -79,7 +79,7 @@ export default function Home() {
       <header className="p-5 flex items-center justify-between">
         <div>
             <div className="text-xs text-[#666]">Balance</div>
-            <div className="text-5xl font-extrabold text-[var(--primary)]">${balance.toFixed(2)}</div>
+            <div className="text-5xl font-extrabold text-black">${balance.toFixed(2)}</div>
             <div className="text-xs text-[#666] mt-1">Acct No: {user?.account_number ?? "—"} • Routing No: {routingNo}</div>
         </div>
         <div className="relative">
@@ -132,46 +132,46 @@ export default function Home() {
       <main className="flex-1 px-4 pb-28 space-y-6">
         <section className="grid grid-cols-3 gap-3">
           <button onClick={() => handleProtectedClick()} className="card p-4 flex flex-col items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-[#e8f8ee] text-[var(--primary)] font-bold flex items-center justify-center">+</div>
+            <div className="h-10 w-10 rounded-full bg-gray-100 text-black font-bold flex items-center justify-center">+</div>
             <div className="text-xs">Add Money</div>
           </button>
           <button onClick={() => handleProtectedClick()} className="card p-4 flex flex-col items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-[#ffeaea] text-red-500 font-bold flex items-center justify-center">-</div>
+            <div className="h-10 w-10 rounded-full bg-gray-100 text-gray-700 font-bold flex items-center justify-center">-</div>
             <div className="text-xs">Withdraw</div>
           </button>
           <button onClick={() => handleProtectedClick()} className="card p-4 flex flex-col items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-[#eaf2ff] text-[#2563eb] font-bold flex items-center justify-center">$</div>
+            <div className="h-10 w-10 rounded-full bg-gray-100 text-gray-700 font-bold flex items-center justify-center">$</div>
             <div className="text-xs">Paychecks</div>
           </button>
           <button onClick={() => handleProtectedClick()} className="card p-4 flex flex-col items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-[#fff7e6] text-[#d97706] font-bold flex items-center justify-center">%</div>
+            <div className="h-10 w-10 rounded-full bg-gray-100 text-gray-700 font-bold flex items-center justify-center">%</div>
             <div className="text-xs">Savings</div>
           </button>
           <button onClick={() => handleProtectedClick()} className="card p-4 flex flex-col items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-[#f0fff4] text-[#16a34a] font-bold flex items-center justify-center">₿</div>
+            <div className="h-10 w-10 rounded-full bg-gray-100 text-gray-700 font-bold flex items-center justify-center">₿</div>
             <div className="text-xs">Bitcoin</div>
           </button>
           <button onClick={() => handleProtectedClick()} className="card p-4 flex flex-col items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-[#eef2ff] text-[#4f46e5] font-bold flex items-center justify-center">S</div>
+            <div className="h-10 w-10 rounded-full bg-gray-100 text-gray-700 font-bold flex items-center justify-center">S</div>
             <div className="text-xs">Stocks</div>
           </button>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-base font-semibold text-[var(--accent)]">Recent Activity</h2>
+          <h2 className="text-base font-semibold text-gray-800">Recent Activity</h2>
           <div className="space-y-3">
             {transactions.map((t) => (
               <div key={t.id} className={`card p-4 flex items-center justify-between`}>
                 <div className="flex items-center gap-3">
-                  <div className={`h-10 w-10 rounded-full flex items-center justify-center ${t.type === "received" ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"}`}>
+                  <div className={`h-10 w-10 rounded-full flex items-center justify-center ${t.type === "received" ? "bg-gray-100 text-gray-800" : "bg-gray-200 text-gray-600"}`}>
                     {t.type === "received" ? "+" : "-"}
                   </div>
                   <div>
                     <div className="text-sm font-semibold capitalize">{t.type}</div>
-                    <div className="text-xs text-[#777]">{new Date(t.created_at).toLocaleString()}</div>
+                    <div className="text-xs text-gray-500">{new Date(t.created_at).toLocaleString()}</div>
                   </div>
                 </div>
-                <div className={`text-base font-bold ${t.type === "received" ? "text-green-600" : "text-red-600"}`}>
+                <div className={`text-base font-bold ${t.type === "received" ? "text-black" : "text-gray-600"}`}>
                   {t.type === "received" ? "+" : "-"}${Number(t.amount).toFixed(2)}
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function Home() {
       </main>
 
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#eaeaea]">
-  <div className="mx-auto max-w-md grid grid-cols-5 py-3 text-sm text-[#555]">
+  <div className="mx-auto max-w-md grid grid-cols-5 py-3 text-sm text-gray-600">
     <button onClick={() => router.push("/")} className="text-center">
       <img src="https://img.icons8.com/?size=100&id=8xhovyHdOQzF&format=png&color=000000" alt="Home" className="mx-auto h-6 w-6 object-contain" />
       <div>Home</div>

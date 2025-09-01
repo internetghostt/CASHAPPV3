@@ -36,7 +36,7 @@ export default function RegisterPage() {
           <input className="input" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           <input className="input" placeholder="Date of Birth" type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
           <input className="input" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
-          {error && <div className="text-sm text-red-600">{error}</div>}
+          {error && <div className="text-sm text-gray-800">{error}</div>}
           <button className="button-primary w-full">Sign up</button>
         </form>
       </div>
