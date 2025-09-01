@@ -9,6 +9,12 @@ type User = {
   phone: string;
   balance: number;
   account_number: string;
+  date_of_birth: string | null;
+  occupation: string | null;
+  contract_start_date: string | null;
+  contract_expiry_date: string | null;
+  kyc_verified: number;
+  bank_verified: number;
   is_admin: number;
   is_frozen: number;
 };
@@ -18,7 +24,7 @@ type AuthContextType = {
   token: string | null;
   isReady: boolean;
   login: (identifier: string, password: string) => Promise<void>;
-  register: (name: string, email: string, phone: string, password: string) => Promise<void>;
+  register: (name: string, email: string, phone: string, password: string, dateOfBirth: string, occupation: string) => Promise<void>;
   logout: () => void;
   refresh: () => Promise<void>;
 };
@@ -65,10 +71,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(res.user);
   };
 
-  const register = async (name: string, email: string, phone: string, password: string) => {
-    const res = await apiPost<{ token: string; user: User }, { name: string; email: string; phone: string; password: string }>(
+  const register = async (name: string, email: string, phone: string, password: string, dateOfBirth: string, occupation: string) => {
+    const res = await apiPost<{ token: string; user: User }, { name: string; email: string; phone: string; password: string; date_of_birth: string; occupation: string }>(
       "/auth/register.php",
-      { name, email, phone, password }
+      { name, email, phone, password, date_of_birth: dateOfBirth, occupation }
     );
     localStorage.setItem("token", res.token);
     setToken(res.token);

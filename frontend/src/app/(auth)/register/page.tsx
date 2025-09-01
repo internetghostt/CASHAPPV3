@@ -8,6 +8,8 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [occupation, setOccupation] = useState("");
   const [error, setError] = useState<string | null>(null);
   const { register } = useAuth();
   const router = useRouter();
@@ -16,7 +18,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setError(null);
     try {
-      await register(name, email, phone, password);
+      await register(name, email, phone, password, dateOfBirth, occupation);
       router.replace("/");
     } catch {
       setError("Could not create account");
@@ -32,6 +34,8 @@ export default function RegisterPage() {
           <input className="input" placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           <input className="input" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
           <input className="input" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input className="input" placeholder="Date of Birth" type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
+          <input className="input" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
           {error && <div className="text-sm text-red-600">{error}</div>}
           <button className="button-primary w-full">Sign up</button>
         </form>

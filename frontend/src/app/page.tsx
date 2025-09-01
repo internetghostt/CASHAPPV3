@@ -94,6 +94,17 @@ export default function Home() {
           </button>
           {menuOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-[#e5e5e5] rounded-xl shadow-lg z-10">
+              {user?.is_admin && (
+                <button
+                  className="w-full text-left px-4 py-2 hover:bg-[#f6f6f6]"
+                  onClick={() => {
+                    router.push("/admin/");
+                    setMenuOpen(false);
+                  }}
+                >
+                  Admin Dashboard
+                </button>
+              )}
               <button
                 className="w-full text-left px-4 py-2 hover:bg-[#f6f6f6]"
                 onClick={() => {

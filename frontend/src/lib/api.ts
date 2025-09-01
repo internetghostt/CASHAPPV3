@@ -30,3 +30,13 @@ export async function apiPatch<TResponse, TBody extends Record<string, unknown>>
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
+
+export async function apiDelete<TResponse>(path: string, body?: Record<string, unknown>): Promise<TResponse> {
+  const res = await fetch(`${API_BASE}${path}`, { 
+    method: "DELETE", 
+    headers: buildHeaders(),
+    body: body ? JSON.stringify(body) : undefined
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}

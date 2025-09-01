@@ -11,7 +11,7 @@ require_auth(true);
 
 try {
     $pdo = get_pdo();
-    $stmt = $pdo->query('SELECT id, name, email, phone, balance, account_number, is_admin, is_frozen, created_at FROM users ORDER BY created_at DESC LIMIT 500');
+    $stmt = $pdo->query('SELECT id, name, email, phone, balance, account_number, date_of_birth, occupation, contract_start_date, contract_expiry_date, kyc_verified, bank_verified, is_admin, is_frozen, created_at FROM users ORDER BY created_at DESC LIMIT 500');
     $rows = $stmt->fetchAll();
     send_json(200, ['users' => $rows]);
 } catch (Throwable $e) {

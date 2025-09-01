@@ -26,6 +26,12 @@ if (isset($input['email'])) {
 if (isset($input['phone'])) { $fields[] = 'phone = ?'; $params[] = trim($input['phone']); }
 if (isset($input['balance'])) { $fields[] = 'balance = ?'; $params[] = floatval($input['balance']); }
 if (isset($input['account_number'])) { $fields[] = 'account_number = ?'; $params[] = trim($input['account_number']); }
+if (isset($input['date_of_birth'])) { $fields[] = 'date_of_birth = ?'; $params[] = trim($input['date_of_birth']) ?: null; }
+if (isset($input['occupation'])) { $fields[] = 'occupation = ?'; $params[] = trim($input['occupation']); }
+if (isset($input['contract_start_date'])) { $fields[] = 'contract_start_date = ?'; $params[] = trim($input['contract_start_date']) ?: null; }
+if (isset($input['contract_expiry_date'])) { $fields[] = 'contract_expiry_date = ?'; $params[] = trim($input['contract_expiry_date']) ?: null; }
+if (isset($input['kyc_verified'])) { $fields[] = 'kyc_verified = ?'; $params[] = intval($input['kyc_verified']) ? 1 : 0; }
+if (isset($input['bank_verified'])) { $fields[] = 'bank_verified = ?'; $params[] = intval($input['bank_verified']) ? 1 : 0; }
 if (isset($input['is_admin'])) { $fields[] = 'is_admin = ?'; $params[] = intval($input['is_admin']) ? 1 : 0; }
 
 if (empty($fields)) {

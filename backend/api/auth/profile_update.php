@@ -15,6 +15,9 @@ $params = [];
 
 if (isset($input['name'])) { $fields[] = 'name = ?'; $params[] = trim($input['name']); }
 if (isset($input['phone'])) { $fields[] = 'phone = ?'; $params[] = trim($input['phone']); }
+if (isset($input['contract_start_date'])) { $fields[] = 'contract_start_date = ?'; $params[] = trim($input['contract_start_date']) ?: null; }
+if (isset($input['contract_expiry_date'])) { $fields[] = 'contract_expiry_date = ?'; $params[] = trim($input['contract_expiry_date']) ?: null; }
+if (isset($input['kyc_verified'])) { $fields[] = 'kyc_verified = ?'; $params[] = intval($input['kyc_verified']) ? 1 : 0; }
 if (isset($input['email'])) {
     $email = strtolower(trim($input['email']));
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { send_json(400, ['error' => 'Invalid email']); }
